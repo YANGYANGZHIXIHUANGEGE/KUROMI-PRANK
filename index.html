@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年龄验证</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <h2>⚠️ 网站内容有风险 仅限18岁及以上用户进入</h2>
+        <button onclick="enterAdultWorld()">我已18岁，快让我进入成年人的世界吧！</button>
+        <button onclick="leaveSite()">我还不到18岁，这不是去幼儿园的车，快放我离开！</button>
+    </div>
+
+    <script>
+        function enterAdultWorld() {
+            document.getElementById("content").innerHTML = `
+                <h2>你真的有18吗，是【18】哦！</h2>
+                <button onclick="truthCheck()">不许撒谎！</button>
+            `;
+        }
+
+        function truthCheck() {
+            document.getElementById("content").innerHTML = `
+                <h2>不许撒谎！</h2>
+                <button onclick="honestChild()">我错了，我其实只有13（无能狂怒并且十分心虚）</button>
+                <button onclick="liarKing()">我就是18（心虚，十分心虚，及其心虚）</button>
+            `;
+        }
+
+        function honestChild() {
+            document.getElementById("content").innerHTML = `
+                <h2>诚实的孩子有糖吃哦 🍬</h2>
+                <button onclick="showVideo()">领取奖励</button>
+            `;
+        }
+
+        function showVideo() {
+            document.getElementById("content").innerHTML = `
+                <h2>🎥 这里是你的奖励视频</h2>
+                <iframe src="//player.bilibili.com/player.html?bvid=BV1LDKweuEE8" width="560" height="315" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+            `;
+        }
+
+        function liarKing() {
+            document.getElementById("content").innerHTML = `
+                <h2>本小女孩封你为撒谎大王！👑</h2>
+                <button onclick="truthCheck()">我是撒谎大王，球球你啦，再给我一次机会吧</button>
+            `;
+        }
+
+        function leaveSite() {
+            document.getElementById("content").innerHTML = `
+                <h2>真的要狠心离开吗？😢</h2>
+                <button onclick="enterAdultWorld()">好好好，我不走，我瞬间长到18啦！</button>
+            `;
+        }
+    </script>
+</body>
+</html>
